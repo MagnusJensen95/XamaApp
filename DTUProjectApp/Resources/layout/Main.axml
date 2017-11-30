@@ -5,10 +5,65 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+  
     <TextView
-        android:text=""
+        android:text="Welcome!"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/mainTitleText" />
+    <TextView
+        android:text="Username"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:id="@+id/userNameMainText" />
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/debugText" />
+        android:id="@+id/userNameTextEdit" />
+    <TextView
+        android:text="Password"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordText" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginBottom="10dp"
+        android:id="@+id/passwordTextEdit" />
+       
+    <Button
+        android:text="Sign In"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginBottom="10dp"
+        android:id="@+id/signInButton" />
+    <Button
+        android:text="Sign In as Guest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInAsGuestButton" />
+        
+    <RelativeLayout
+        android:layout_weight="10"
+        android:layout_height="0dp"
+      android:layout_width="match_parent">
+      <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loadingBarMain"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+     
 </LinearLayout>

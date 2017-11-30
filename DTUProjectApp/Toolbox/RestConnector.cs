@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using RestSharp;
 using Newtonsoft;
-using Newtonsoft.Json;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -13,148 +13,14 @@ using Android.Views;
 using Android.Widget;
 
 using RESTXama.Models;
+using Newtonsoft.Json;
 
 namespace DTUProjectApp
 {
     class RestConnector
     {
 
-        
-        public Users[] GetUsers(RestClient client)
-        {
-
-            var request = new RestRequest("api/Users", Method.GET);
 
 
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            Users[] user = JsonConvert.DeserializeObject<Users[]>(content);
-
-            return user;
-        }
-
-        public Ingredients[] GetIngredients(RestClient client, int productID)
-        {
-
-            var request = new RestRequest("api/Ingredients", Method.GET);
-
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            Ingredients[] ingredients = JsonConvert.DeserializeObject<Ingredients[]>(content);
-
-            return ingredients;
-        }
-
-        public RESTXama.Models.Gallery[] GetGallery(RestClient client, int userID)
-        {
-
-            var request = new RestRequest("api/Galleries", Method.GET);
-
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            RESTXama.Models.Gallery[] galleries = JsonConvert.DeserializeObject<RESTXama.Models.Gallery[]>(content);
-
-            return galleries;
-        }
-
-        public Prices[] GetPrices(RestClient client, int userID)
-        {
-
-            var request = new RestRequest("api/prices", Method.GET);
-
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            Prices[] prices = JsonConvert.DeserializeObject<Prices[]>(content);
-
-            return prices;
-        }
-
-        public Userinfo[] GetUserInfo(RestClient client, int userID)
-        {
-
-            var request = new RestRequest("api/userinfoes", Method.GET);
-
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            Userinfo[] userInfo = JsonConvert.DeserializeObject<Userinfo[]>(content);
-
-            return userInfo;
-        }
-
-     public string InsertUser(Users user, RestClient client)
-        {
-            var request = new RestRequest("api/Users", Method.POST);
-
-            var toAdd = JsonConvert.SerializeObject(user);
-
-
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.StatusCode;
-            return content.ToString();
-        }
-
-        public string InsertPrice(Prices price, RestClient client, int userID)
-        {
-            var request = new RestRequest("api/Prices", Method.POST);
-
-            var toAdd = JsonConvert.SerializeObject(price);
-
-
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.StatusCode;
-            return content.ToString();
-        }
-
-        public string InsertGallery(RESTXama.Models.Gallery gallery, RestClient client, int userID)
-        {
-            var request = new RestRequest("api/Galleries", Method.POST);
-
-            var toAdd = JsonConvert.SerializeObject(gallery);
-
-
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.StatusCode;
-            return content.ToString();
-        }
-
-        public string InsertUserInfo(Userinfo userinfo, RestClient client, int userID)
-        {
-            var request = new RestRequest("api/userinfoes", Method.POST);
-
-            var toAdd = JsonConvert.SerializeObject(userinfo);
-
-
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.StatusCode;
-            return content.ToString();
-        }
-
-        public string InsertIngredient(Ingredients ingredient, RestClient client, int productID)
-        {
-            var request = new RestRequest("api/ingredients", Method.POST);
-
-            var toAdd = JsonConvert.SerializeObject(ingredient);
-
-
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.StatusCode;
-            return content.ToString();
-        }
-
- 
     }
 }

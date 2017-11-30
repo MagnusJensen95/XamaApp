@@ -7,6 +7,8 @@ using System;
 using Newtonsoft;
 using RESTXama.Models;
 using Newtonsoft.Json;
+using DTUProjectApp.Toolbox;
+
 
 namespace DTUProjectApp
 {
@@ -26,19 +28,13 @@ namespace DTUProjectApp
 
             var client = new RestClient("http://10.0.2.2:60408");
             
-            var request = new RestRequest("api/Users", Method.POST);
-            Users jensen = new Users(3, "nusnus", "nusnus", "nusnus", "nusnus", DateTime.Today);
-            
-            //request.AddObject(jensen);
-            var toAdd = JsonConvert.SerializeObject(jensen);
-            
+           
+            Users jensen = new Users(1, "jensen", "jensen", "jensen", "jensen", DateTime.Today);
 
-            request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            string debug = ("code: " + response.StatusCode);
+            RestUpdater updater = new RestUpdater();
             
+            string debug = updater.UpdateUser(1, jensen, client);
+
             debugView.Text = debug;
             /*
             Users[] user = JsonConvert.DeserializeObject<Users[]>(content); 

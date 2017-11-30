@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using RestSharp;
@@ -12,7 +13,7 @@ namespace DTUProjectApp
     [Activity(Label = "DTUProjectApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
-
+        
         TextView debugView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,11 +34,6 @@ namespace DTUProjectApp
             
 
             request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
-
-          
-
-
-
 
             IRestResponse response = client.Execute(request);
             var content = response.Content;

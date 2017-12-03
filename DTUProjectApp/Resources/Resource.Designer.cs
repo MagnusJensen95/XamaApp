@@ -45,7 +45,10 @@ namespace DTUProjectApp
 		{
 			
 			// aapt resource value: 0x7f040007
-			public const int loadingBarMain = 2130968583;
+			public const int createProfileButton = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int loadingBarMain = 2130968584;
 			
 			// aapt resource value: 0x7f040000
 			public const int mainTitleText = 2130968576;
@@ -83,6 +86,9 @@ namespace DTUProjectApp
 			
 			// aapt resource value: 0x7f020000
 			public const int Main = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int NewProfileLayout = 2130837505;
 			
 			static Layout()
 			{

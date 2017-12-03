@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-  
     <TextView
         android:text="Welcome!"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -39,31 +38,40 @@
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_marginBottom="10dp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/passwordTextEdit" />
-       
     <Button
         android:text="Sign In"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         android:id="@+id/signInButton" />
-    <Button
-        android:text="Sign In as Guest"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:id="@+id/signInAsGuestButton" />
-        
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <Button
+            android:text="Sign In as Guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signInAsGuestButton" />
+        <Button
+            android:text="Create Profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createProfileButton" />
+    </LinearLayout>
     <RelativeLayout
         android:layout_weight="10"
         android:layout_height="0dp"
-      android:layout_width="match_parent">
-      <ProgressBar
+        android:layout_width="match_parent">
+        <ProgressBar
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/loadingBarMain"
             android:layout_centerInParent="true" />
     </RelativeLayout>
-     
 </LinearLayout>

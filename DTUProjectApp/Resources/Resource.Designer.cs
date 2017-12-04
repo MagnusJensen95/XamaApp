@@ -59,14 +59,11 @@ namespace DTUProjectApp
 			// aapt resource value: 0x7f060000
 			public const int mainTitleText = 2131099648;
 			
+			// aapt resource value: 0x7f060013
+			public const int menu_LogOut = 2131099667;
+			
 			// aapt resource value: 0x7f060012
 			public const int menu_edit = 2131099666;
-			
-			// aapt resource value: 0x7f060014
-			public const int menu_preferences = 2131099668;
-			
-			// aapt resource value: 0x7f060013
-			public const int menu_save = 2131099667;
 			
 			// aapt resource value: 0x7f06000e
 			public const int passwordEditCreate = 2131099662;

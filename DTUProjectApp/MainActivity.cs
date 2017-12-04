@@ -1,5 +1,6 @@
 ﻿    
 using Android.App;
+using Android.Content;
 using Android.Widget;
 using Android.OS;
 using RestSharp;
@@ -8,7 +9,7 @@ using Newtonsoft;
 using RESTXama.Models;
 using Newtonsoft.Json;
 using DTUProjectApp.Toolbox;
-using System.Threading;
+using System.Threading.Tasks;
 using DTUProjectApp.Model;
 using System.Linq;
 
@@ -35,6 +36,8 @@ namespace DTUProjectApp
 
             SetContentView(Resource.Layout.Main);
 
+            usernameEdit = FindViewById<EditText>(Resource.Id.userNameTextEdit);
+            passwordEdit = FindViewById<EditText>(Resource.Id.passwordTextEdit);
             signIn = FindViewById<Button>(Resource.Id.signInButton);
             createProfile = FindViewById<Button>(Resource.Id.createProfileButton);
             signInGuest = FindViewById<Button>(Resource.Id.signInAsGuestButton);
@@ -43,10 +46,6 @@ namespace DTUProjectApp
 
             reader = new RestReader();
             inserter = new RestInserter();
-            
-
-            
-
 
             signIn.Click += SignIn_Click;
             createProfile.Click += CreateProfileClick;
@@ -57,6 +56,9 @@ namespace DTUProjectApp
         private void SignInGuest_Click(object sender, EventArgs e)
         {
             //Take the user to content window whithout toolbar access
+            var nextUp = new Intent(this, typeof(MainContentActivity));
+            nextUp.PutExtra("LegitUser", false);
+            StartActivity(nextUp);
         }
 
         private async void CreateProfileClick(object sender, EventArgs e)
@@ -97,11 +99,43 @@ namespace DTUProjectApp
 
         }
 
-        private void SignIn_Click(object sender, EventArgs e)
+        private async void SignIn_Click(object sender, EventArgs e)
         {
+            bar.Visibility = Android.Views.ViewStates.Visible;
+            bool boolTest = await  IsUserLegit(usernameEdit.Text, passwordEdit.Text);
+            bar.Visibility = Android.Views.ViewStates.Invisible;
             //get the user to the main content page with toolbar
-            StartActivity(typeof(MainContentActivity));
-           
+            if (boolTest)
+            {
+                var nextUp = new Intent(this, typeof(MainContentActivity));
+                nextUp.PutExtra("LegitUser", true);
+                nextUp.PutExtra("Username", usernameEdit.Text);
+
+                StartActivity(nextUp);
+            }
+
+            else
+            {
+                Toast.MakeText(this.ApplicationContext, "Wrong Username or Password", ToastLength.Short).Show();
+            }
+            
+
+        }
+
+        public async Task<bool> IsUserLegit(string username, string password)
+        {
+
+            var client = new RestClient("http://10.0.2.2:60408");
+            users = await reader.GetUsers(client);
+
+            foreach (Users user in users)
+            {
+                if (user.Username == username && user.Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -44,32 +44,68 @@ namespace DTUProjectApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040007
-			public const int createProfileButton = 2130968583;
+			// aapt resource value: 0x7f060011
+			public const int createButtonConfirm = 2131099665;
 			
-			// aapt resource value: 0x7f040008
-			public const int loadingBarMain = 2130968584;
+			// aapt resource value: 0x7f060007
+			public const int createProfileButton = 2131099655;
 			
-			// aapt resource value: 0x7f040000
-			public const int mainTitleText = 2130968576;
+			// aapt resource value: 0x7f060010
+			public const int emaileCreateEdit = 2131099664;
 			
-			// aapt resource value: 0x7f040003
-			public const int passwordText = 2130968579;
+			// aapt resource value: 0x7f060008
+			public const int loadingBarMain = 2131099656;
 			
-			// aapt resource value: 0x7f040004
-			public const int passwordTextEdit = 2130968580;
+			// aapt resource value: 0x7f060000
+			public const int mainTitleText = 2131099648;
 			
-			// aapt resource value: 0x7f040006
-			public const int signInAsGuestButton = 2130968582;
+			// aapt resource value: 0x7f060012
+			public const int menu_edit = 2131099666;
 			
-			// aapt resource value: 0x7f040005
-			public const int signInButton = 2130968581;
+			// aapt resource value: 0x7f060014
+			public const int menu_preferences = 2131099668;
 			
-			// aapt resource value: 0x7f040001
-			public const int userNameMainText = 2130968577;
+			// aapt resource value: 0x7f060013
+			public const int menu_save = 2131099667;
 			
-			// aapt resource value: 0x7f040002
-			public const int userNameTextEdit = 2130968578;
+			// aapt resource value: 0x7f06000e
+			public const int passwordEditCreate = 2131099662;
+			
+			// aapt resource value: 0x7f060003
+			public const int passwordText = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int passwordTextEdit = 2131099652;
+			
+			// aapt resource value: 0x7f060006
+			public const int signInAsGuestButton = 2131099654;
+			
+			// aapt resource value: 0x7f060005
+			public const int signInButton = 2131099653;
+			
+			// aapt resource value: 0x7f06000b
+			public const int textView1 = 2131099659;
+			
+			// aapt resource value: 0x7f06000d
+			public const int textView2 = 2131099661;
+			
+			// aapt resource value: 0x7f06000f
+			public const int textView3 = 2131099663;
+			
+			// aapt resource value: 0x7f06000a
+			public const int textView4 = 2131099658;
+			
+			// aapt resource value: 0x7f060009
+			public const int toolbar = 2131099657;
+			
+			// aapt resource value: 0x7f060001
+			public const int userNameMainText = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int userNameTextEdit = 2131099650;
+			
+			// aapt resource value: 0x7f06000c
+			public const int usernameEditCreate = 2131099660;
 			
 			static Id()
 			{
@@ -88,7 +124,13 @@ namespace DTUProjectApp
 			public const int Main = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int NewProfileLayout = 2130837505;
+			public const int MainContent = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int NewProfileLayout = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int toolbar = 2130837507;
 			
 			static Layout()
 			{
@@ -96,6 +138,22 @@ namespace DTUProjectApp
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int toolbaritems = 2131034112;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}
@@ -112,6 +170,22 @@ namespace DTUProjectApp
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int MyTheme = 2130968576;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

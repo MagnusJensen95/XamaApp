@@ -44,14 +44,23 @@ namespace DTUProjectApp
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040010
+			public const int createButtonConfirm = 2130968592;
+			
 			// aapt resource value: 0x7f040007
 			public const int createProfileButton = 2130968583;
+			
+			// aapt resource value: 0x7f04000f
+			public const int emaileCreateEdit = 2130968591;
 			
 			// aapt resource value: 0x7f040008
 			public const int loadingBarMain = 2130968584;
 			
 			// aapt resource value: 0x7f040000
 			public const int mainTitleText = 2130968576;
+			
+			// aapt resource value: 0x7f04000d
+			public const int passwordEditCreate = 2130968589;
 			
 			// aapt resource value: 0x7f040003
 			public const int passwordText = 2130968579;
@@ -65,11 +74,26 @@ namespace DTUProjectApp
 			// aapt resource value: 0x7f040005
 			public const int signInButton = 2130968581;
 			
+			// aapt resource value: 0x7f04000a
+			public const int textView1 = 2130968586;
+			
+			// aapt resource value: 0x7f04000c
+			public const int textView2 = 2130968588;
+			
+			// aapt resource value: 0x7f04000e
+			public const int textView3 = 2130968590;
+			
+			// aapt resource value: 0x7f040009
+			public const int textView4 = 2130968585;
+			
 			// aapt resource value: 0x7f040001
 			public const int userNameMainText = 2130968577;
 			
 			// aapt resource value: 0x7f040002
 			public const int userNameTextEdit = 2130968578;
+			
+			// aapt resource value: 0x7f04000b
+			public const int usernameEditCreate = 2130968587;
 			
 			static Id()
 			{

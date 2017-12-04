@@ -50,18 +50,21 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_width="match_parent">
         <Button
             android:text="Sign In as Guest"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/signInAsGuestButton" />
+            android:id="@+id/signInAsGuestButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0" />
         <Button
             android:text="Create Profile"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/createProfileButton" />
+            android:id="@+id/createProfileButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0" />
     </LinearLayout>
     <RelativeLayout
         android:layout_weight="10"

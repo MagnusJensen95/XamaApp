@@ -12,21 +12,26 @@ using Android.Widget;
 using RESTXama.Models;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Threading.Tasks;
 
 namespace DTUProjectApp.Toolbox
 {
     class RestReader
     {
-        public Users[] GetUsers(RestClient client)
+
+        public event EventHandler IOhandler;
+
+
+        public async Task<Users[]> GetUsers(RestClient client)
         {
 
             var request = new RestRequest("api/Users", Method.GET);
 
 
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = await Task.Run(() => client.Execute(request));
             var content = response.Content;
             Users[] user = JsonConvert.DeserializeObject<Users[]>(content);
-
+            
             return user;
         }
 

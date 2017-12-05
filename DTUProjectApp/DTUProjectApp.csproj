@@ -68,7 +68,9 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarContent.cs" />
     <Compile Include="CreateProfileFrag.cs" />
+    <Compile Include="EditProfileContent.cs" />
     <Compile Include="ListActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainContentActivity.cs">
@@ -101,6 +103,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MainContent.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\mainrowlayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\BarContent.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EditLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

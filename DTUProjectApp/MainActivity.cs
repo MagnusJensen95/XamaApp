@@ -58,7 +58,10 @@ namespace DTUProjectApp
             //Take the user to content window whithout toolbar access
             var nextUp = new Intent(this, typeof(MainContentActivity));
             nextUp.PutExtra("LegitUser", false);
+           string serializedUsers = JsonConvert.SerializeObject(users);
+            nextUp.PutExtra("userString", serializedUsers);
             StartActivity(nextUp);
+
         }
 
         private async void CreateProfileClick(object sender, EventArgs e)
@@ -109,7 +112,10 @@ namespace DTUProjectApp
             {
                 var nextUp = new Intent(this, typeof(MainContentActivity));
                 nextUp.PutExtra("LegitUser", true);
+                
                 nextUp.PutExtra("Username", usernameEdit.Text);
+                string serializedUsers = JsonConvert.SerializeObject(users);
+                nextUp.PutExtra("userString", serializedUsers);
 
                 StartActivity(nextUp);
             }

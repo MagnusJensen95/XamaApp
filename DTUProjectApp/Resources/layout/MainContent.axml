@@ -7,24 +7,27 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
     <TextView
-        android:text="Medium Text"
+        android:text="Pick a Bar"
+        android:layout_gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:id="@+id/mainContentDescriber" />
-  <ScrollView
-      android:minWidth="25px"
-      android:minHeight="25px"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/mainScrollerBars">
-
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/barLister" />
-  </ScrollView>
-    
+        android:orientation="vertical"
+        >
+       
+            <ListView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#FFFFFF"
+                android:dividerHeight="2dp"
+                android:id="@+id/barLister" />
+        
+    </LinearLayout>
 </LinearLayout>

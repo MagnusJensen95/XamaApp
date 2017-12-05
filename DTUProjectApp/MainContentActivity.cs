@@ -8,15 +8,24 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using RESTXama.Models;
+using DTUProjectApp.Toolbox;
+using Newtonsoft.Json;
 
 namespace DTUProjectApp
 {
     [Activity(Label = "MainContentActivity")]
     public class MainContentActivity : Activity
     {
-        
 
-        
+        ListView listView;
+        Users[] ListedUsers { get; set; }
+       
+
+        public MainContentActivity()
+        {
+            
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,6 +33,14 @@ namespace DTUProjectApp
             RequestWindowFeature(Android.Views.WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.MainContent);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+
+            listView = FindViewById<ListView>(Resource.Id.barLister);
+            ListedUsers = JsonConvert
+                .DeserializeObject<Users[]>(Intent.GetStringExtra("userString"));
+            BarAdapter adapter = new BarAdapter(this, ListedUsers.ToList<Users>());
+
+            listView.Adapter = adapter;
+            listView.ItemClick += ListView_ItemClick;
 
             bool amISignedInQuestionMark = Intent.GetBooleanExtra("LegitUser", false);
 
@@ -38,6 +55,13 @@ namespace DTUProjectApp
             }
 
            
+        }
+
+        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+
+            
+            StartActivity(typeof(BarContent));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -56,6 +80,13 @@ namespace DTUProjectApp
 
                 case Resource.Id.menu_edit:
                     {
+
+                        var i = new Intent(this, typeof(EditProfileContent));
+                        string userSignedIn = Intent.GetStringExtra("Username");
+
+                        i.PutExtra("Username", userSignedIn);
+
+                        StartActivity(i);
                         break;
                     }
 

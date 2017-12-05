@@ -61,13 +61,13 @@ namespace DTUProjectApp.Toolbox
             return galleries;
         }
 
-        public Prices[] GetPrices(RestClient client, int userID)
+        public async Task<Prices[]> GetPrices(RestClient client, int userID)
         {
 
-            var request = new RestRequest("api/prices", Method.GET);
+            var request = new RestRequest("api/prices"+ userID, Method.GET);
 
 
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = await Task.Run(() => client.Execute(request));
             var content = response.Content;
             Prices[] prices = JsonConvert.DeserializeObject<Prices[]>(content);
 

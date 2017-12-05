@@ -19,6 +19,7 @@ namespace DTUProjectApp
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.BarContent);
+            RequestWindowFeature(Android.Views.WindowFeatures.NoTitle);
             // Create your application here
         }
     }

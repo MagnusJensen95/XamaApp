@@ -86,7 +86,7 @@ namespace DTUProjectApp
 
          
             CreateProfileFrag frag = new CreateProfileFrag(baseUsers);
-            frag.createEventHandler += Frag_createEventHandler;
+            frag.CreateEventHandler += Frag_createEventHandler;
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             frag.Show(transaction, "CreateProfileFrag");
             

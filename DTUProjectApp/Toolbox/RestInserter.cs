@@ -12,6 +12,7 @@ using Android.Widget;
 using RESTXama.Models;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Threading.Tasks;
 
 namespace DTUProjectApp.Toolbox
 {
@@ -33,7 +34,7 @@ namespace DTUProjectApp.Toolbox
             return content.ToString();
         }
 
-        public string InsertPrice(Prices price, RestClient client, int userID)
+        public async Task<string> InsertPrice(Prices price, RestClient client, int userID)
         {
             var request = new RestRequest("api/Prices", Method.POST);
 
@@ -42,7 +43,7 @@ namespace DTUProjectApp.Toolbox
 
             request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
 
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = await Task.Run(() => client.Execute(request));
             var content = response.StatusCode;
             return content.ToString();
         }

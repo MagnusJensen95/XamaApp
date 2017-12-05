@@ -20,7 +20,7 @@ namespace DTUProjectApp
 
         ListView listView;
         Users[] ListedUsers { get; set; }
-       
+        public int CurrentUserId { get; set; }
 
         public MainContentActivity()
         {
@@ -48,7 +48,13 @@ namespace DTUProjectApp
             {
                 //Only apply toolbar if the user is signed in 
                 string userSignedIn = Intent.GetStringExtra("Username");
-
+                for (int i = 0; i < ListedUsers.Length; i++)
+                {
+                    if (userSignedIn == ListedUsers[i].Username)
+                    {
+                        CurrentUserId = ListedUsers[i].Id;
+                    }
+                }
                 SetActionBar(toolbar);
 
                 ActionBar.Title = userSignedIn;
@@ -60,8 +66,9 @@ namespace DTUProjectApp
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
 
-            
-            StartActivity(typeof(BarContent));
+            var intent = new Intent(this, typeof(BarContent));
+            intent.PutExtra("userId", CurrentUserId);
+            StartActivity(intent);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -85,6 +92,7 @@ namespace DTUProjectApp
                         string userSignedIn = Intent.GetStringExtra("Username");
 
                         i.PutExtra("Username", userSignedIn);
+                        i.PutExtra("userId", CurrentUserId);
 
                         StartActivity(i);
                         break;

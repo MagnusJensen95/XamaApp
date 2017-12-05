@@ -33,7 +33,7 @@ namespace DTUProjectApp
             Button createButton;
             public BasicUser[] Users { get; set; }
 
-            public event EventHandler<OnCreateProfileEvent> createEventHandler;
+            public event EventHandler<OnCreateProfileEvent> CreateEventHandler;
 
 
             public CreateProfileFrag(BasicUser[] users)
@@ -66,7 +66,7 @@ namespace DTUProjectApp
                     return;
                 }
 
-                createEventHandler.Invoke(sender, new OnCreateProfileEvent
+                CreateEventHandler.Invoke(sender, new OnCreateProfileEvent
                 {
                     Username = username.Text,
                     Password = password.Text,

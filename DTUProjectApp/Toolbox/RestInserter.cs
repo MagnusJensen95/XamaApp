@@ -34,7 +34,7 @@ namespace DTUProjectApp.Toolbox
             return content.ToString();
         }
 
-        public async Task<string> InsertPrice(Prices price, RestClient client, int userID)
+        public string InsertPrice(Prices price, RestClient client, int userID)
         {
             var request = new RestRequest("api/Prices", Method.POST);
 
@@ -43,7 +43,7 @@ namespace DTUProjectApp.Toolbox
 
             request.AddParameter("application/json; charset=utf-8", toAdd, ParameterType.RequestBody);
 
-            IRestResponse response = await Task.Run(() => client.Execute(request));
+            IRestResponse response = client.Execute(request);
             var content = response.StatusCode;
             return content.ToString();
         }

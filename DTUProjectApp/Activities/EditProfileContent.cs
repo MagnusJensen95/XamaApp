@@ -31,7 +31,7 @@ namespace DTUProjectApp
             RequestWindowFeature(Android.Views.WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.EditLayout);
 
-            this.GetPrices();
+             
             optionsList = FindViewById<ListView>(Resource.Id.optionsList);
 
             List<string> options = new List<string> { "Add New Product", "Delete Product", "Delete Profile" };
@@ -40,7 +40,9 @@ namespace DTUProjectApp
 
             optionsList.ItemClick += OptionsList_ItemClick;
 
-            CurrentUserSignedInId = Int32.Parse(Intent.GetStringExtra("userId"));
+            CurrentUserSignedInId = Intent.GetIntExtra("userId", 0);
+            Toast.MakeText(this, "User is there" + CurrentUserSignedInId, ToastLength.Short).Show();
+            GetPrices();
 
 
         }
@@ -51,6 +53,7 @@ namespace DTUProjectApp
             RestReader reader = new RestReader();
 
             UserPrices = await  reader.GetPrices(client, CurrentUserSignedInId);
+            Toast.MakeText(this, "Userprices might be null" + UserPrices, ToastLength.Short).Show();
         }
 
         private void OptionsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -90,16 +93,31 @@ namespace DTUProjectApp
             }
         }
 
-        private async void AddFrag_ProductHandler(object sender, OnCreateProductEvent e)
+        private  void AddFrag_ProductHandler(object sender, OnCreateProductEvent e)
         {
             var client = new RestClient("http://10.0.2.2:60408");
             RestInserter inserter = new RestInserter();
-            
+ 
+            Prices price = new Prices
+                {
+                Id = CurrentUserSignedInId,
 
-            
+                ProductId = UserPrices.Length,
+                Name = e.Name,
+                Price = e.Price,
+                Picture = "none",
+                IdNavigation = null,
+                Ingredients = null};
+            try
+            {
+                 string nus = inserter.InsertPrice(price, client, CurrentUserSignedInId);
+            }
 
-            Prices price = new Prices { Id = CurrentUserSignedInId, ProductId = UserPrices.Length, Name = e.Name, Price = e.Price, Picture = null };
-            await inserter.InsertPrice(price, client, CurrentUserSignedInId);
+            catch (Exception ex)
+            {
+                Toast.MakeText(this.ApplicationContext, "Exception at insertion attempt! (activity)", ToastLength.Short).Show();
+            }
+            
 
 
         }

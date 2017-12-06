@@ -23,9 +23,12 @@ namespace DTUProjectApp
             View view = inflater.Inflate(Resource.Layout.currentpricesfrag, container);
             productList = view.FindViewById<ListView>(Resource.Id.currentPricesList);
 
-            
 
+            
             return view;
         }
+
+        
+        
     }
 }

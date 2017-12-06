@@ -18,7 +18,7 @@ namespace DTUProjectApp
     {
         public string Name { get; set; }
         public int Price { get; set; }
-        public int userId { get; set; }
+        public int UserId { get; set; }
 
         public OnCreateProductEvent() : base()
         {
@@ -53,7 +53,7 @@ namespace DTUProjectApp
 
             addProductButton.Click += AddProductButton_Click;
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            return view;
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace DTUProjectApp
                 Toast.MakeText(this.Context, "You must fill out every field!", ToastLength.Short).Show();
                 return;
             }
-            ProductHandler.Invoke(sender, new OnCreateProductEvent {Name = name.Text, Price = Int32.Parse(price.Text), userId = UserId});
+            ProductHandler.Invoke(sender, new OnCreateProductEvent {Name = name.Text, Price = Int32.Parse(price.Text), UserId = this.UserId});
             Dismiss();
         }
     }

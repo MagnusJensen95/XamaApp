@@ -19,7 +19,7 @@ namespace DTUProjectApp.Toolbox
     class RestReader
     {
 
-        public event EventHandler IOhandler;
+        
 
 
         public async Task<Users[]> GetUsers(RestClient client)

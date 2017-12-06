@@ -53,6 +53,7 @@ namespace DTUProjectApp
                     if (userSignedIn == ListedUsers[i].Username)
                     {
                         CurrentUserId = ListedUsers[i].Id;
+                        //Toast.MakeText(this, "User is there" + CurrentUserId, ToastLength.Short).Show();
                     }
                 }
                 SetActionBar(toolbar);
@@ -93,6 +94,7 @@ namespace DTUProjectApp
 
                         i.PutExtra("Username", userSignedIn);
                         i.PutExtra("userId", CurrentUserId);
+                        //Toast.MakeText(this, "User is there" + CurrentUserId, ToastLength.Short).Show();
 
                         StartActivity(i);
                         break;

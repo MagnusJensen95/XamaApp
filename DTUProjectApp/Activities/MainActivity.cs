@@ -53,12 +53,16 @@ namespace DTUProjectApp
 
         }
 
-        private void SignInGuest_Click(object sender, EventArgs e)
+        private async void SignInGuest_Click(object sender, EventArgs e)
         {
             //Take the user to content window whithout toolbar access
             var nextUp = new Intent(this, typeof(MainContentActivity));
             nextUp.PutExtra("LegitUser", false);
-           string serializedUsers = JsonConvert.SerializeObject(users);
+            var client = new RestClient("http://10.0.2.2:60408");
+            bar.Visibility = Android.Views.ViewStates.Visible;
+            users = await reader.GetUsers(client);
+            bar.Visibility = Android.Views.ViewStates.Invisible;
+            string serializedUsers = JsonConvert.SerializeObject(users);
             nextUp.PutExtra("userString", serializedUsers);
             StartActivity(nextUp);
 

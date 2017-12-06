@@ -18,8 +18,9 @@ namespace DTUProjectApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.BarContent);
             RequestWindowFeature(Android.Views.WindowFeatures.NoTitle);
+            SetContentView(Resource.Layout.BarContent);
+            
             // Create your application here
         }
     }

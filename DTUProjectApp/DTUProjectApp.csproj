@@ -68,14 +68,14 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProductFrag.cs" />
-    <Compile Include="BarContent.cs" />
-    <Compile Include="CreateProfileFrag.cs" />
-    <Compile Include="EditProductFrag.cs" />
-    <Compile Include="EditProfileContent.cs" />
-    <Compile Include="ListActivity.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="MainContentActivity.cs">
+    <Compile Include="Fragments\AddProductFrag.cs" />
+    <Compile Include="Activities\BarContent.cs" />
+    <Compile Include="Fragments\CreateProfileFrag.cs" />
+    <Compile Include="Fragments\EditProductFrag.cs" />
+    <Compile Include="Activities\EditProfileContent.cs" />
+    <Compile Include="Activities\ListActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\MainContentActivity.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\BasicUser.cs" />

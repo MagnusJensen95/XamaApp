@@ -71,6 +71,7 @@
     <Compile Include="Fragments\AddProductFrag.cs" />
     <Compile Include="Activities\BarContent.cs" />
     <Compile Include="Fragments\CreateProfileFrag.cs" />
+    <Compile Include="Fragments\DeleteProductFragment.cs" />
     <Compile Include="Fragments\EditProductFrag.cs" />
     <Compile Include="Activities\EditProfileContent.cs" />
     <Compile Include="Activities\ListActivity.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Toolbox\BarAdapter.cs" />
+    <Compile Include="Toolbox\ProductAdapter.cs" />
     <Compile Include="Toolbox\RestConnector.cs" />
     <Compile Include="Toolbox\RestDeleter.cs" />
     <Compile Include="Toolbox\RestInserter.cs" />
@@ -120,6 +122,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\currentpricesfrag.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\productrowlayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

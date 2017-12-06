@@ -35,6 +35,40 @@ namespace DTUProjectApp.Toolbox
             return user;
         }
 
+
+        public async Task<Prices[]> GetPrices(RestClient client, int userID)
+        {
+
+            var request = new RestRequest("api/Prices/" + userID, Method.GET);
+
+
+            IRestResponse response = await Task.Run(() => client.Execute(request));
+            var content = response.Content;
+            Prices[] prices = JsonConvert.DeserializeObject<Prices[]>(content);
+
+            return prices;
+
+
+
+        }
+
+        public async Task<Prices[]> GetPrices(RestClient client)
+        {
+
+            var request = new RestRequest("api/Prices", Method.GET);
+
+
+            IRestResponse response = await Task.Run(() => client.Execute(request));
+            var content = response.Content;
+            Prices[] prices = JsonConvert.DeserializeObject<Prices[]>(content);
+
+            return prices;
+
+
+
+        }
+
+
         public Ingredients[] GetIngredients(RestClient client, int productID)
         {
 
@@ -61,18 +95,6 @@ namespace DTUProjectApp.Toolbox
             return galleries;
         }
 
-        public async Task<Prices[]> GetPrices(RestClient client, int userID)
-        {
-
-            var request = new RestRequest("api/prices"+ userID, Method.GET);
-
-
-            IRestResponse response = await Task.Run(() => client.Execute(request));
-            var content = response.Content;
-            Prices[] prices = JsonConvert.DeserializeObject<Prices[]>(content);
-
-            return prices;
-        }
 
         public Userinfo[] GetUserInfo(RestClient client, int userID)
         {

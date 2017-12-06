@@ -34,11 +34,11 @@ namespace DTUProjectApp
         public event EventHandler<OnCreateProductEvent> ProductHandler;
 
         EditText name, price;
-        public int UserId { get; set; }
+        public int AddUserId { get; set; }
 
         public AddProductFrag(int userID)
         {
-            UserId = userID;
+            AddUserId = userID;
 
         }
       
@@ -64,7 +64,7 @@ namespace DTUProjectApp
                 Toast.MakeText(this.Context, "You must fill out every field!", ToastLength.Short).Show();
                 return;
             }
-            ProductHandler.Invoke(sender, new OnCreateProductEvent {Name = name.Text, Price = Int32.Parse(price.Text), UserId = this.UserId});
+            ProductHandler.Invoke(sender, new OnCreateProductEvent {Name = name.Text, Price = Int32.Parse(price.Text), UserId = AddUserId});
             Dismiss();
         }
     }

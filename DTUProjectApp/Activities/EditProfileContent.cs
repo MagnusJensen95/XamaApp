@@ -22,7 +22,7 @@ namespace DTUProjectApp
 
         ListView optionsList;
         public int CurrentUserSignedInId;
-      public Prices[] UserPrices { get; set; }
+        private Prices[] userPrices;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,7 +31,7 @@ namespace DTUProjectApp
             RequestWindowFeature(Android.Views.WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.EditLayout);
 
-             
+
             optionsList = FindViewById<ListView>(Resource.Id.optionsList);
 
             List<string> options = new List<string> { "Add New Product", "Delete Product", "Delete Profile" };
@@ -42,33 +42,26 @@ namespace DTUProjectApp
 
             CurrentUserSignedInId = Intent.GetIntExtra("userId", 0);
             Toast.MakeText(this, "User is there" + CurrentUserSignedInId, ToastLength.Short).Show();
-            GetPrices();
+
 
 
         }
 
-        public async void GetPrices()
+     
+        public async void OptionsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var client = new RestClient("http://10.0.2.2:60408");
-            RestReader reader = new RestReader();
 
-            UserPrices = await  reader.GetPrices(client, CurrentUserSignedInId);
-            Toast.MakeText(this, "Userprices might be null" + UserPrices, ToastLength.Short).Show();
-        }
-
-        private void OptionsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            
 
             switch (e.Position)
             {
                 case 0:
                     {
                         //Add product
-
-
+                        var client = new RestClient("http://10.0.2.2:60408");
+                        RestReader reader = new RestReader();
+                        userPrices = await reader.GetPrices(client);
                         AddProductFrag addFrag = new AddProductFrag(CurrentUserSignedInId);
-
+                        
                         addFrag.ProductHandler += AddFrag_ProductHandler;
                         FragmentTransaction transaction = FragmentManager.BeginTransaction();
                         addFrag.Show(transaction, "CreateProductFrag");
@@ -79,7 +72,14 @@ namespace DTUProjectApp
                     {
 
                         //Delete product 
-                        Toast.MakeText(this.ApplicationContext, "CLicked; !" + 2, ToastLength.Short).Show();
+                        var client = new RestClient("http://10.0.2.2:60408");
+                        RestReader reader = new RestReader();
+                        userPrices = await reader.GetPrices(client, CurrentUserSignedInId);
+
+                        EditProductFrag deleteFrag = new EditProductFrag(userPrices); 
+                        FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                        deleteFrag.Show(transaction, "CreateProductFrag");
+
                         break;
                     }
                 case 2:
@@ -93,27 +93,32 @@ namespace DTUProjectApp
             }
         }
 
-        private  void AddFrag_ProductHandler(object sender, OnCreateProductEvent e)
+        private void AddFrag_ProductHandler(object sender, OnCreateProductEvent e)
         {
             var client = new RestClient("http://10.0.2.2:60408");
+            RestReader reader = new RestReader();
             RestInserter inserter = new RestInserter();
- 
-            Prices price = new Prices
-                {
-                Id = CurrentUserSignedInId,
 
-                ProductId = UserPrices.Length,
+
+            
+      
+            Toast.MakeText(this, "Userprices might be null " + userPrices.Length, ToastLength.Short).Show();
+            
+            Prices price = new Prices
+            {
+                Id = CurrentUserSignedInId,
+                ProductId =  (userPrices.Length == 0) ? 0 : userPrices[userPrices.Length-1].ProductId + 1,
                 Name = e.Name,
                 Price = e.Price,
                 Picture = "none",
                 IdNavigation = null,
-                Ingredients = null};
+                Ingredients = null  };
             try
             {
-                 string nus = inserter.InsertPrice(price, client, CurrentUserSignedInId);
+                 inserter.InsertPrice(price, client, CurrentUserSignedInId);
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 Toast.MakeText(this.ApplicationContext, "Exception at insertion attempt! (activity)", ToastLength.Short).Show();
             }

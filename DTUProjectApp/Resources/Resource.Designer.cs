@@ -68,6 +68,9 @@ namespace DTUProjectApp
 			// aapt resource value: 0x7f060006
 			public const int currentPricesList = 2131099654;
 			
+			// aapt resource value: 0x7f060021
+			public const int deleteProductButton = 2131099681;
+			
 			// aapt resource value: 0x7f06001d
 			public const int emaileCreateEdit = 2131099677;
 			
@@ -80,11 +83,11 @@ namespace DTUProjectApp
 			// aapt resource value: 0x7f060009
 			public const int mainTitleText = 2131099657;
 			
-			// aapt resource value: 0x7f060020
-			public const int menu_LogOut = 2131099680;
+			// aapt resource value: 0x7f060023
+			public const int menu_LogOut = 2131099683;
 			
-			// aapt resource value: 0x7f06001f
-			public const int menu_edit = 2131099679;
+			// aapt resource value: 0x7f060022
+			public const int menu_edit = 2131099682;
 			
 			// aapt resource value: 0x7f060008
 			public const int optionsList = 2131099656;
@@ -103,6 +106,12 @@ namespace DTUProjectApp
 			
 			// aapt resource value: 0x7f060004
 			public const int priceTextEdit = 2131099652;
+			
+			// aapt resource value: 0x7f060020
+			public const int rowProductPrice = 2131099680;
+			
+			// aapt resource value: 0x7f06001f
+			public const int rowProductTitle = 2131099679;
 			
 			// aapt resource value: 0x7f060016
 			public const int rowSubTitle = 2131099670;
@@ -181,7 +190,10 @@ namespace DTUProjectApp
 			public const int NewProfileLayout = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int toolbar = 2130837512;
+			public const int productrowlayout = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int toolbar = 2130837513;
 			
 			static Layout()
 			{

@@ -26,11 +26,15 @@ namespace DTUProjectApp.Toolbox
 
         List<Prices> productList;
          public event EventHandler<DeleteEventArgs> DeleteHandler;
+        public int ProductSelected { get; set; }
+        public int TestCount { get; set; }
+        private bool delegateAdded = false;
 
         public ProductAdapter(Context context, List<Prices> products) : base()
         {
             CurrentContext = context;
             productList = products;
+            TestCount = 0;
         }
 
         public override string this[int position] => throw new NotImplementedException();
@@ -50,23 +54,26 @@ namespace DTUProjectApp.Toolbox
             {
                 row = LayoutInflater.From(CurrentContext)
                     .Inflate(Resource.Layout.productrowlayout, null, false);
-            }
+                TextView productName = row.FindViewById<TextView>(Resource.Id.rowProductTitle);
+                TextView productPrice = row.FindViewById<TextView>(Resource.Id.rowProductPrice);
+                Button deleteButton = row.FindViewById<Button>(Resource.Id.deleteProductButton);
+                productName.Text = productList[position].Name;
+                productPrice.Text = "" + productList[position].Price + " kr.";
 
-            TextView productName = row.FindViewById<TextView>(Resource.Id.rowProductTitle);
-            TextView productPrice = row.FindViewById<TextView>(Resource.Id.rowProductPrice);
-            Button deleteButton = row.FindViewById<Button>(Resource.Id.deleteProductButton);
-            productName.Text = productList[position].Name;
-            productPrice.Text = "" + productList[position].Price + " kr.";
 
-            deleteButton.Click += (object s, EventArgs e) =>
+                deleteButton.Click += (object s, EventArgs e) =>
                 {
-                    DeleteHandler.Invoke(s, new DeleteEventArgs { ProductId = price.ProductId });
-                    row.Invalidate();
-                    };
+                    TestCount++;
+                    //Toast.MakeText(row.Context, "Counts: " + TestCount, ToastLength.Short).Show();
+                    DeleteHandler.Invoke(s, new DeleteEventArgs { ProductId = productList[position].ProductId });
+                    delegateAdded = true;
+                    
+                };
+            }
 
             return row;
         }
 
-
+     
     }
 }

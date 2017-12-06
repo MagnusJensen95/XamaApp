@@ -55,6 +55,7 @@ namespace DTUProjectApp
             RestDeleter deleter = new RestDeleter();
 
             deleter.DeletePrice(e.ProductId, client);
+            Dismiss();
         }
     }
 }

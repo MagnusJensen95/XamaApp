@@ -2,34 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using DTUProjectApp.Model;
 using RESTXama.Models;
-using Java.Lang;
 
 namespace DTUProjectApp.Toolbox
 {
-    class BarAdapter : BaseAdapter<Users>
+    class MainBarContentAdapter : BaseAdapter<Prices>
     {
+
+
         private Context CurrentContext { get; set; }
 
-        private List<Users> usersList;
+        private List<Prices> productList;
 
-        public BarAdapter(Context context, List<Users> users) : base()
+        public MainBarContentAdapter(Context context, List<Prices> prices) : base()
         {
             CurrentContext = context;
-            usersList = users;
+            productList = prices;
         }
 
 
-        public override Users this[int position] => throw new NotImplementedException();
+        public override Prices this[int position] => throw new NotImplementedException();
 
-        public override int Count => usersList.ToArray().Length;
+        public override int Count => productList.ToArray().Length;
 
         public override long GetItemId(int position)
         {
@@ -43,14 +44,14 @@ namespace DTUProjectApp.Toolbox
             if (row == null)
             {
                 row = LayoutInflater.From(CurrentContext)
-                    .Inflate(Resource.Layout.mainrowlayout, null, false);
+                    .Inflate(Resource.Layout.mainbarcontentrowlayout, null, false);
             }
 
-           TextView titleText = row.FindViewById<TextView>(Resource.Id.rowTitle);
-           TextView subText = row.FindViewById<TextView>(Resource.Id.rowSubTitle);
-            titleText.Text = usersList[position].Name;
-            subText.Text = usersList[position].Email;
-            
+            TextView titleText = row.FindViewById<TextView>(Resource.Id.mainBarRowProductTitle);
+            TextView subText = row.FindViewById<TextView>(Resource.Id.mainBarRowProductPrice);
+            titleText.Text = productList[position].Name;
+            subText.Text = "" + productList[position].Price + " kr.";
+
 
             return row;
         }

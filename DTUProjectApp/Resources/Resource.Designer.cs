@@ -41,116 +41,144 @@ namespace DTUProjectApp
 			}
 		}
 		
+		public partial class Drawable
+		{
+			
+			// aapt resource value: 0x7f020000
+			public const int drinkpic = 2130837504;
+			
+			static Drawable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Drawable()
+			{
+			}
+		}
+		
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060007
-			public const int EditProfileTitle = 2131099655;
+			// aapt resource value: 0x7f070008
+			public const int EditProfileTitle = 2131165192;
 			
-			// aapt resource value: 0x7f060005
-			public const int addProductConfirm = 2131099653;
+			// aapt resource value: 0x7f070005
+			public const int addProductConfirm = 2131165189;
 			
-			// aapt resource value: 0x7f060001
-			public const int addProductNameText = 2131099649;
+			// aapt resource value: 0x7f070001
+			public const int addProductNameText = 2131165185;
 			
-			// aapt resource value: 0x7f060002
-			public const int addProductNameTextEdit = 2131099650;
+			// aapt resource value: 0x7f070002
+			public const int addProductNameTextEdit = 2131165186;
 			
-			// aapt resource value: 0x7f060014
-			public const int barLister = 2131099668;
+			// aapt resource value: 0x7f070018
+			public const int barLister = 2131165208;
 			
-			// aapt resource value: 0x7f06001e
-			public const int createButtonConfirm = 2131099678;
+			// aapt resource value: 0x7f070022
+			public const int createButtonConfirm = 2131165218;
 			
-			// aapt resource value: 0x7f060010
-			public const int createProfileButton = 2131099664;
+			// aapt resource value: 0x7f070011
+			public const int createProfileButton = 2131165201;
 			
-			// aapt resource value: 0x7f060006
-			public const int currentPricesList = 2131099654;
+			// aapt resource value: 0x7f070007
+			public const int currentPricesList = 2131165191;
 			
-			// aapt resource value: 0x7f060021
-			public const int deleteProductButton = 2131099681;
+			// aapt resource value: 0x7f070025
+			public const int deleteProductButton = 2131165221;
 			
-			// aapt resource value: 0x7f06001d
-			public const int emaileCreateEdit = 2131099677;
+			// aapt resource value: 0x7f070021
+			public const int emaileCreateEdit = 2131165217;
 			
-			// aapt resource value: 0x7f060011
-			public const int loadingBarMain = 2131099665;
+			// aapt resource value: 0x7f070015
+			public const int imageView1 = 2131165205;
 			
-			// aapt resource value: 0x7f060013
-			public const int mainContentDescriber = 2131099667;
+			// aapt resource value: 0x7f070012
+			public const int loadingBarMain = 2131165202;
 			
-			// aapt resource value: 0x7f060009
-			public const int mainTitleText = 2131099657;
+			// aapt resource value: 0x7f070006
+			public const int mainBarContentListview = 2131165190;
 			
-			// aapt resource value: 0x7f060023
-			public const int menu_LogOut = 2131099683;
+			// aapt resource value: 0x7f070014
+			public const int mainBarRowProductPrice = 2131165204;
 			
-			// aapt resource value: 0x7f060022
-			public const int menu_edit = 2131099682;
+			// aapt resource value: 0x7f070013
+			public const int mainBarRowProductTitle = 2131165203;
 			
-			// aapt resource value: 0x7f060008
-			public const int optionsList = 2131099656;
+			// aapt resource value: 0x7f070017
+			public const int mainContentDescriber = 2131165207;
 			
-			// aapt resource value: 0x7f06001b
-			public const int passwordEditCreate = 2131099675;
+			// aapt resource value: 0x7f07000a
+			public const int mainTitleText = 2131165194;
 			
-			// aapt resource value: 0x7f06000c
-			public const int passwordText = 2131099660;
+			// aapt resource value: 0x7f070027
+			public const int menu_LogOut = 2131165223;
 			
-			// aapt resource value: 0x7f06000d
-			public const int passwordTextEdit = 2131099661;
+			// aapt resource value: 0x7f070026
+			public const int menu_edit = 2131165222;
 			
-			// aapt resource value: 0x7f060003
-			public const int priceText = 2131099651;
+			// aapt resource value: 0x7f070009
+			public const int optionsList = 2131165193;
 			
-			// aapt resource value: 0x7f060004
-			public const int priceTextEdit = 2131099652;
+			// aapt resource value: 0x7f07001f
+			public const int passwordEditCreate = 2131165215;
 			
-			// aapt resource value: 0x7f060020
-			public const int rowProductPrice = 2131099680;
+			// aapt resource value: 0x7f07000d
+			public const int passwordText = 2131165197;
 			
-			// aapt resource value: 0x7f06001f
-			public const int rowProductTitle = 2131099679;
+			// aapt resource value: 0x7f07000e
+			public const int passwordTextEdit = 2131165198;
 			
-			// aapt resource value: 0x7f060016
-			public const int rowSubTitle = 2131099670;
+			// aapt resource value: 0x7f070003
+			public const int priceText = 2131165187;
 			
-			// aapt resource value: 0x7f060015
-			public const int rowTitle = 2131099669;
+			// aapt resource value: 0x7f070004
+			public const int priceTextEdit = 2131165188;
 			
-			// aapt resource value: 0x7f060017
-			public const int rowstatus = 2131099671;
+			// aapt resource value: 0x7f070024
+			public const int rowProductPrice = 2131165220;
 			
-			// aapt resource value: 0x7f06000f
-			public const int signInAsGuestButton = 2131099663;
+			// aapt resource value: 0x7f070023
+			public const int rowProductTitle = 2131165219;
 			
-			// aapt resource value: 0x7f06000e
-			public const int signInButton = 2131099662;
+			// aapt resource value: 0x7f07001a
+			public const int rowSubTitle = 2131165210;
 			
-			// aapt resource value: 0x7f060018
-			public const int textView1 = 2131099672;
+			// aapt resource value: 0x7f070019
+			public const int rowTitle = 2131165209;
 			
-			// aapt resource value: 0x7f06001a
-			public const int textView2 = 2131099674;
+			// aapt resource value: 0x7f07001b
+			public const int rowstatus = 2131165211;
 			
-			// aapt resource value: 0x7f06001c
-			public const int textView3 = 2131099676;
+			// aapt resource value: 0x7f070010
+			public const int signInAsGuestButton = 2131165200;
 			
-			// aapt resource value: 0x7f060000
-			public const int textView4 = 2131099648;
+			// aapt resource value: 0x7f07000f
+			public const int signInButton = 2131165199;
 			
-			// aapt resource value: 0x7f060012
-			public const int toolbar = 2131099666;
+			// aapt resource value: 0x7f07001c
+			public const int textView1 = 2131165212;
 			
-			// aapt resource value: 0x7f06000a
-			public const int userNameMainText = 2131099658;
+			// aapt resource value: 0x7f07001e
+			public const int textView2 = 2131165214;
 			
-			// aapt resource value: 0x7f06000b
-			public const int userNameTextEdit = 2131099659;
+			// aapt resource value: 0x7f070020
+			public const int textView3 = 2131165216;
 			
-			// aapt resource value: 0x7f060019
-			public const int usernameEditCreate = 2131099673;
+			// aapt resource value: 0x7f070000
+			public const int textView4 = 2131165184;
+			
+			// aapt resource value: 0x7f070016
+			public const int toolbar = 2131165206;
+			
+			// aapt resource value: 0x7f07000b
+			public const int userNameMainText = 2131165195;
+			
+			// aapt resource value: 0x7f07000c
+			public const int userNameTextEdit = 2131165196;
+			
+			// aapt resource value: 0x7f07001d
+			public const int usernameEditCreate = 2131165213;
 			
 			static Id()
 			{
@@ -165,35 +193,38 @@ namespace DTUProjectApp
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int AddProductLayout = 2130837504;
+			// aapt resource value: 0x7f030000
+			public const int AddProductLayout = 2130903040;
 			
-			// aapt resource value: 0x7f020001
-			public const int BarContent = 2130837505;
+			// aapt resource value: 0x7f030001
+			public const int BarContent = 2130903041;
 			
-			// aapt resource value: 0x7f020002
-			public const int currentpricesfrag = 2130837506;
+			// aapt resource value: 0x7f030002
+			public const int currentpricesfrag = 2130903042;
 			
-			// aapt resource value: 0x7f020003
-			public const int EditLayout = 2130837507;
+			// aapt resource value: 0x7f030003
+			public const int EditLayout = 2130903043;
 			
-			// aapt resource value: 0x7f020004
-			public const int Main = 2130837508;
+			// aapt resource value: 0x7f030004
+			public const int Main = 2130903044;
 			
-			// aapt resource value: 0x7f020005
-			public const int MainContent = 2130837509;
+			// aapt resource value: 0x7f030005
+			public const int mainbarcontentrowlayout = 2130903045;
 			
-			// aapt resource value: 0x7f020006
-			public const int mainrowlayout = 2130837510;
+			// aapt resource value: 0x7f030006
+			public const int MainContent = 2130903046;
 			
-			// aapt resource value: 0x7f020007
-			public const int NewProfileLayout = 2130837511;
+			// aapt resource value: 0x7f030007
+			public const int mainrowlayout = 2130903047;
 			
-			// aapt resource value: 0x7f020008
-			public const int productrowlayout = 2130837512;
+			// aapt resource value: 0x7f030008
+			public const int NewProfileLayout = 2130903048;
 			
-			// aapt resource value: 0x7f020009
-			public const int toolbar = 2130837513;
+			// aapt resource value: 0x7f030009
+			public const int productrowlayout = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int toolbar = 2130903050;
 			
 			static Layout()
 			{
@@ -208,8 +239,8 @@ namespace DTUProjectApp
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int toolbaritems = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int toolbaritems = 2131099648;
 			
 			static Menu()
 			{
@@ -224,8 +255,8 @@ namespace DTUProjectApp
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int app_name = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int app_name = 2130968576;
 			
 			static String()
 			{
@@ -240,8 +271,8 @@ namespace DTUProjectApp
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int MyTheme = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int MyTheme = 2131034112;
 			
 			static Style()
 			{

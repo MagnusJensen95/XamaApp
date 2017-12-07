@@ -65,6 +65,7 @@ namespace DTUProjectApp
                 return;
             }
             ProductHandler.Invoke(sender, new OnCreateProductEvent {Name = name.Text, Price = Int32.Parse(price.Text), UserId = AddUserId});
+            Toast.MakeText(this.Context, "Product added succesfully", ToastLength.Short).Show();
             Dismiss();
         }
     }

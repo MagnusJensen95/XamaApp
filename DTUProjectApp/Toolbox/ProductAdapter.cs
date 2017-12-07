@@ -22,13 +22,13 @@ namespace DTUProjectApp.Toolbox
     }
     class ProductAdapter : BaseAdapter<string>
     {
-        Context CurrentContext { get; set; }
+        private Context CurrentContext { get; set; }
 
-        List<Prices> productList;
+        private List<Prices> productList;
          public event EventHandler<DeleteEventArgs> DeleteHandler;
-        public int ProductSelected { get; set; }
-        public int TestCount { get; set; }
-        private bool delegateAdded = false;
+        private int ProductSelected { get; set; }
+        private int TestCount { get; set; }
+        
 
         public ProductAdapter(Context context, List<Prices> products) : base()
         {
@@ -66,7 +66,7 @@ namespace DTUProjectApp.Toolbox
                     TestCount++;
                     //Toast.MakeText(row.Context, "Counts: " + TestCount, ToastLength.Short).Show();
                     DeleteHandler.Invoke(s, new DeleteEventArgs { ProductId = productList[position].ProductId });
-                    delegateAdded = true;
+                    
                     
                 };
             }

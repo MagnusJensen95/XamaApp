@@ -20,13 +20,13 @@ namespace DTUProjectApp
     [Activity(Label = "DTUProjectApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        
-       
-        EditText usernameEdit, passwordEdit;
-        Users[] users;
-        RestReader reader;
-        RestInserter inserter;
-        ProgressBar bar;
+
+
+        private EditText usernameEdit, passwordEdit;
+        private  Users[] users;
+        private RestReader reader;
+        private RestInserter inserter;
+        private ProgressBar bar;
 
         Button signIn, createProfile, signInGuest;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -99,7 +99,8 @@ namespace DTUProjectApp
         private void Frag_createEventHandler(object sender, OnCreateProfileEvent e)
         {
             var client = new RestClient("http://10.0.2.2:60408");
-            Users newUser = new Users(users[users.Length-1].Id + 1 , e.Username, e.Username, e.Password, e.Email, DateTime.Today);
+            int userIdToAdd = (users.Length == 0) ? 0 : users[users.Length - 1].Id + 1;
+            Users newUser = new Users(userIdToAdd, e.Username, e.Username, e.Password, e.Email, DateTime.Today);
             inserter.InsertUser(newUser, client);
             Toast.MakeText(this.ApplicationContext, "User created succesfully!", ToastLength.Short).Show();
 

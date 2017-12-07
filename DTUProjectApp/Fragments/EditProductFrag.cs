@@ -55,7 +55,11 @@ namespace DTUProjectApp
             RestDeleter deleter = new RestDeleter();
 
             deleter.DeletePrice(e.ProductId, client);
+            Toast.MakeText(this.Context, "Product deleted succesfully", ToastLength.Short).Show();
+
             Dismiss();
         }
+
+      
     }
 }

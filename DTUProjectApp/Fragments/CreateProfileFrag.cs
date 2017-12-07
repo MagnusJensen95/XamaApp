@@ -29,9 +29,9 @@ namespace DTUProjectApp
         class CreateProfileFrag : DialogFragment
         {
 
-            EditText username, password, email;
-            Button createButton;
-            public BasicUser[] Users { get; set; }
+        private EditText username, password, email;
+        private Button createButton;
+        private BasicUser[] Users { get; set; }
 
             public event EventHandler<OnCreateProfileEvent> CreateEventHandler;
 

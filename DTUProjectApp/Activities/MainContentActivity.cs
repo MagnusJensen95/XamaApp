@@ -11,6 +11,7 @@ using Android.Widget;
 using RESTXama.Models;
 using DTUProjectApp.Toolbox;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace DTUProjectApp
 {
@@ -18,7 +19,7 @@ namespace DTUProjectApp
     public class MainContentActivity : Activity
     {
 
-        ListView listView;
+        private ListView listView;
         Users[] ListedUsers { get; set; }
         public int CurrentUserId { get; set; }
 
@@ -64,10 +65,18 @@ namespace DTUProjectApp
            
         }
 
-        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private async void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            var client = new RestClient("http://10.0.2.2:60408");
+            RestReader reader = new RestReader();
+            Toast.MakeText(this, "Loading. . ." + CurrentUserId, ToastLength.Short).Show();
+            Prices[] prices = await reader.GetPrices(client, ListedUsers[e.Position].Id);
 
             var intent = new Intent(this, typeof(BarContent));
+            string serializedPrices = JsonConvert.SerializeObject(prices);
+            intent.PutExtra("priceString", serializedPrices);
+
+           
             intent.PutExtra("userId", CurrentUserId);
             StartActivity(intent);
         }

@@ -20,8 +20,8 @@ namespace DTUProjectApp
     public class EditProfileContent : Activity
     {
 
-        ListView optionsList;
-        public int CurrentUserSignedInId;
+        private ListView optionsList;
+        private int CurrentUserSignedInId;
         private Prices[] userPrices;
 
 
@@ -41,7 +41,7 @@ namespace DTUProjectApp
             optionsList.ItemClick += OptionsList_ItemClick;
 
             CurrentUserSignedInId = Intent.GetIntExtra("userId", 0);
-            Toast.MakeText(this, "User is there" + CurrentUserSignedInId, ToastLength.Short).Show();
+           // Toast.MakeText(this, "User is there" + CurrentUserSignedInId, ToastLength.Short).Show();
 
 
 
@@ -86,6 +86,8 @@ namespace DTUProjectApp
                     {
 
                         //Delete profile
+
+                        Toast.MakeText(this.ApplicationContext, "Delete Profile - To be implemented!", ToastLength.Short).Show();
                         break;
                     }
 
@@ -102,7 +104,7 @@ namespace DTUProjectApp
 
             
       
-            Toast.MakeText(this, "Userprices might be null " + userPrices.Length, ToastLength.Short).Show();
+          //  Toast.MakeText(this, "Userprices might be null " + userPrices.Length, ToastLength.Short).Show();
             
             Prices price = new Prices
             {
